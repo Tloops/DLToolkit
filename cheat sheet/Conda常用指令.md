@@ -1,4 +1,6 @@
-# Common Commands for Conda
+# Conda常用指令
+
+`conda` 是`python`的常用环境及包管理工具
 
 `conda` is an environment and package management tool for `python`
 
