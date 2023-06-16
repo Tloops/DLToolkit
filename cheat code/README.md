@@ -2,10 +2,24 @@
 
 This folder provides some code to be easily used in deep learning.
 
-## visdom
 
-You may need to start a server (usually on localhost) for `visdom`:
+
+### visdom
+
+You may need to start a server (usually on `localhost`) for `visdom`:
 ```
 python -m visdom.server -p 6677
 ```
-`-p` specifies the port number. After executing this in command line, you can go to localhost:6677 to see the visualization.
+`-p` specifies the port number. After executing this in command line, you can go to `localhost:6677` to see the visualization.
+
+
+
+### registration
+
+In the registration directory:
+
+-  `visualize.py` is for performance visualization, it can generate checkboard or simply merge two images using transparency
+- `process_CF_FA.py`, `process_CF_OCTA.py` and `process_FIRE.py` are used to do preprocessing for the datasets
+- `all_process_gdbicp.py` is for the `gdb-icp` toolkit, the script can enable processing all images in one run.
+
+Note: The `gdb-icp` toolkit has a bad download location. Find it at [GDB-ICP files](https://www.cs.rpi.edu/research/groups/vision/gdbicp/exec/files/) and choose the version you need. `-invert` is needed especially for multi-modal retinal images.
