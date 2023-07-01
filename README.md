@@ -7,6 +7,7 @@ This repository will be updated occasionally.
 
 ### registration:
 
+- [x] random elastic transformation generation and visualizer
 - [x] generate checkboard of 2 images
 - [x] preprocessing script for 3 datasets
 - [x] script for `gdb-icp`
