@@ -19,6 +19,7 @@ python -m visdom.server -p 6677
 In the registration directory:
 
 -  `visualize.py` is for performance visualization, it can generate checkboard or simply merge two images using transparency
+-  `field_generator.py` is for random smooth elastic transformation generation, and also provides a way to visualize deformation field
 - `process_CF_FA.py`, `process_CF_OCTA.py` and `process_FIRE.py` are used to do preprocessing for the datasets
 - `all_process_gdbicp.py` is for the `gdb-icp` toolkit, the script can enable processing all images in one run.
 
