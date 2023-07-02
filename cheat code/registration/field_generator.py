@@ -24,34 +24,34 @@ def field_visualizer(field_numpy, imtype=np.float32):
 
 def random_elastic_transform(image, alpha, sigma, random_state=None):
     '''
-    image: (h, w, ?), can use multiple image in different channels
+    image: (h, w, ?), can be gray or color image
     alpha: scale of transformation, the bigger the more distortion, the best choice is 2*w or 2*h
     sigma: smoothness of transformation, the bigger the smoother, the best choice is 0.08*w or 0.08*h
     random_state: random seed
     '''
     if random_state is None:
         random_state = np.random.RandomState(None)
+
+    h, w, _ = image.shape
+    field_shape = (h, w, 1)
     
-    shape = image.shape
-    
-    dx = gaussian_filter((random_state.rand(*shape) * 2 - 1), sigma) * alpha
-    dy = gaussian_filter((random_state.rand(*shape) * 2 - 1), sigma) * alpha
-    dz = np.zeros_like(dx)
+    dx = gaussian_filter((random_state.rand(*field_shape) * 2 - 1), sigma) * alpha
+    dy = gaussian_filter((random_state.rand(*field_shape) * 2 - 1), sigma) * alpha
     field = np.concatenate((dx, dy), axis=-1)
 
-    x, y, z = np.meshgrid(np.arange(shape[1]), np.arange(shape[0]), np.arange(shape[2]))
+    x, y, z = np.meshgrid(np.arange(image.shape[1]), np.arange(image.shape[0]), np.arange(image.shape[2]))
+    print(x.shape, y.shape, z.shape, dx.shape, dy.shape)
     indices = np.reshape(y+dy, (-1, 1)), np.reshape(x+dx, (-1, 1)), np.reshape(z, (-1, 1))
-    return field, map_coordinates(image, indices, order=1, mode='reflect').reshape(shape)
+    im_t = map_coordinates(image, indices, order=1, mode='reflect').reshape(image.shape)
+    return field, im_t
 
 
 if __name__ == "__main__":
-
-    img_path = 'a06.png'
-    im = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
-    im = im[..., np.newaxis]
+    img_path = 'A01_1.jpg'
+    im = cv2.imread(img_path)
     print('im.shape', im.shape)
     field, im_t = random_elastic_transform(im, im.shape[1]*2, im.shape[1]*0.08)
     print('field.shape', field.shape)
     field_viz = field_visualizer(field)
     cv2.imwrite('field.png', field_viz)
-    cv2.imwrite('a06_t.png', im_t)
+    cv2.imwrite('A01_1_t.jpg', im_t)
