@@ -18,7 +18,7 @@ Generative network本质上是要学习到数据的分布。
 
 加噪过程就是在前一步的图像的基础上加上一张随机采样的得到的噪声图像。
 
-![image-20230626014608047](C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20230626014608047.png)
+![image-20230626014608047](./images/diffusion01.png)
 
 要理解这个所谓“采样“，是每次根据某个预设的概率分布来选择其中具体的一种可能。
 
