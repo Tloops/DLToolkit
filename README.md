@@ -10,7 +10,7 @@ This repository will be updated occasionally.
 ### Image Registration:
 
 - [x] random elastic transformation generation and visualizer
-- [x] generate checkboard of 2 images
+- [x] generate checkerboard of 2 images
 - [x] preprocessing script for 3 datasets
 - [x] script for `gdb-icp`
 
@@ -22,8 +22,8 @@ This repository will be updated occasionally.
 - [x] conda
 - [x] `tqdm`
 
-## 3 Blog :cake:
+## 3 Blog :old_key:
 
-The blog is in Chinese.
+The blog is in Chinese. They are written by myself.
 
 - [x] diffusion公式推导
