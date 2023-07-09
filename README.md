@@ -10,6 +10,7 @@ This repository will be updated occasionally.
 ### Image Registration:
 
 - [x] random elastic transformation generation and visualizer
+- [x] Jacobian determinant calculation
 - [x] generate checkerboard of 2 images
 - [x] preprocessing script for 3 datasets
 - [x] script for `gdb-icp`
