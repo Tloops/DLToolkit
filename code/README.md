@@ -4,6 +4,12 @@ This folder provides some code to be easily used in deep learning.
 
 
 
+### Display network parameters in detail
+
+See `calculate_params.py`
+
+
+
 ### Package `visdom`
 
 You may need to start a server (usually on `localhost`) for `visdom`:
